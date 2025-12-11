@@ -40,6 +40,7 @@ const Navbar = () => {
       </ul>
 
       {/* Mobile Hamburger */}
+      <div className="md:hidden flex gap-5 items-center">
       <button
         className="md:hidden flex flex-col gap-1"
         onClick={() => setOpen(!open)}
@@ -60,7 +61,8 @@ const Navbar = () => {
           }`}
         />
       </button>
-
+<ThemeButton />
+</div>
       {/* Mobile Menu */}
       <div
         className={`absolute z-50 top-[70px] left-0 w-full bg-white/70 dark:bg-black/80 backdrop-blur-md md:hidden transition-all duration-300 ${
@@ -87,9 +89,6 @@ const Navbar = () => {
               </Link>
             </li>
           ))}
-
-          {/* Theme Toggle */}
-          <ThemeButton />
         </ul>
       </div>
     </nav>

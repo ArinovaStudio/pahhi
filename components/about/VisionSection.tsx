@@ -3,16 +3,16 @@ import Image from "next/image";
 export default function VisionSection() {
   return (
     <section className="w-full bg-white text-black dark:bg-black dark:text-white py-20 transition-colors duration-300">
-      <div className="mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+      <div className="mx-auto grid grid-cols-1 lg:grid-cols-2 gap-5 items-center">
 
         {/* Left Image */}
-        <div className="w-full flex justify-center lg:justify-start">
+        <div className="w-full h-full flex justify-center lg:justify-start">
           <Image
             src="/vision.png"
             alt="Vision Graphic"
             width={500}
-            height={700}
-            className="w-full max-w-[500px] h-auto object-cover"
+            height={500}
+            className="w-full max-h-[400px] min-h-full! object-cover"
           />
         </div>
 
