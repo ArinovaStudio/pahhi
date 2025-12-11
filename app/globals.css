@@ -111,7 +111,9 @@
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
 }
-
+.blur-div{
+  z-index: 9999 !important;
+}
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -136,14 +138,6 @@
   }
 }
 
-@keyframes identifier {
-  0%{
-
-  } 
-  100%{
-    display: none;
-  }
-}
 .animate-load-in{
   animation: load-in 4s ease-in-out 1 alternate forwards;
 }

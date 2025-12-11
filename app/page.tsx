@@ -7,7 +7,7 @@ import Image from "next/image";
 export default function Home() {
   return (
     <div>
-        <div className="absolute z-50! inset-0 animate-load-in min-h-screen min-w-screen"></div>
+        <div className="blur-div absolute inset-0 animate-load-in h-full w-full"></div>
         <div className="absolute opacity-0 bg-black! dark:bg-white! z-40! inset-0 transition-all animate-click-picture h-full w-full"></div>
         <Hero/>
         <OurWorkSection/>
