@@ -22,7 +22,6 @@ interface ImageSpotlightProps {
   config?: SpotlightConfig;
 }
 
-
 export default function ImageSpotlight({
   src,
   alt,
@@ -31,7 +30,7 @@ export default function ImageSpotlight({
   height,
   config = {}
 }: ImageSpotlightProps) {
-  // Default configuration
+
   const defaultConfig: Required<SpotlightConfig> = {
     spotlightSize: 80,
     overlayOpacity: 0.6,
@@ -40,12 +39,9 @@ export default function ImageSpotlight({
 
   const finalConfig = { ...defaultConfig, ...config };
 
-  // Component state
   const [perspective, setPerspective] = useState<PerspectiveState>({ rotateX: 0, rotateY: 0 });
-
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Mouse move handler
   const handleMouseMove = useCallback((event: React.MouseEvent<HTMLDivElement>) => {
     if (!containerRef.current) return;
 
@@ -53,31 +49,22 @@ export default function ImageSpotlight({
     const x = ((event.clientX - rect.left) / rect.width) * 100;
     const y = ((event.clientY - rect.top) / rect.height) * 100;
 
-    // Update CSS variables for spotlight position
     containerRef.current.style.setProperty('--mouse-x', `${x}%`);
     containerRef.current.style.setProperty('--mouse-y', `${y}%`);
 
-    // Calculate 3D perspective rotation
-    // Map cursor position to rotation values (-8 to +8 degrees for subtle effect)
-    const rotateY = ((x - 50) / 50) * 8; // Left-right tilt
-    const rotateX = ((50 - y) / 50) * 8; // Up-down tilt (inverted for natural feel)
+    const rotateY = ((x - 50) / 50) * 8;
+    const rotateX = ((50 - y) / 50) * 8;
 
     setPerspective({ rotateX, rotateY });
   }, []);
 
-  // Mouse enter handler
-  const handleMouseEnter = () => {
-    // Handler for mouse enter event
-  };
+  const handleMouseEnter = () => {};
 
-  // Mouse leave handler
   const handleMouseLeave = () => {
-    setPerspective({ rotateX: 0, rotateY: 0 }); // Reset perspective when leaving
+    setPerspective({ rotateX: 0, rotateY: 0 });
   };
 
-  // Container classes and inline styles
   const getContainerDimensions = (): React.CSSProperties => {
-    // Use provided width/height or fall back to defaults based on orientation
     if (width && height) {
       return {
         width: `${width}px`,
@@ -86,20 +73,9 @@ export default function ImageSpotlight({
       };
     }
 
-    // Default dimensions if no width/height provided
-    if (orientation === 'landscape') {
-      return {
-        width: '800px',
-        height: '450px', // 16:9 ratio
-        maxWidth: '100%'
-      };
-    } else {
-      return {
-        width: '450px',
-        height: '600px', // 3:4 ratio
-        maxWidth: '100%'
-      };
-    }
+    return orientation === 'landscape'
+      ? { width: '800px', height: '450px', maxWidth: '100%' }
+      : { width: '450px', height: '600px', maxWidth: '100%' };
   };
 
   const containerClasses = `
@@ -127,64 +103,61 @@ export default function ImageSpotlight({
           '--overlay-opacity': finalConfig.overlayOpacity,
           transform: `perspective(1000px) rotateX(${perspective.rotateX}deg) rotateY(${perspective.rotateY}deg)`,
           transformStyle: 'preserve-3d',
-          transition: 'transform 0.2s ease-out'
+          transition: 'transform 0.2s ease-out',
+          contentVisibility: 'auto',        // 🟢 Big performance win
+          containIntrinsicSize: '800px'     // Prevents layout shift
         } as React.CSSProperties}
       >
-        {/* Hidden instructions for screen readers */}
         <div id="spotlight-instructions" className="sr-only">
           Interactive image with mouse spotlight effect.
-          Move your mouse over the image to reveal different areas.
         </div>
 
-        {/* Blurred Base Image - Always visible */}
+        {/* Blurred Base Image (Lazy Loaded) */}
         <img
           src={src}
           alt={alt}
+          loading="lazy"
+          decoding="async"
+          fetchPriority="low"
           className="absolute inset-0 w-full h-full object-cover"
           draggable={false}
           style={{ filter: 'blur(5px)' }}
         />
 
-        {/* Sharp Image - Only visible through spotlight */}
+        {/* Sharp Image Revealed in Spotlight */}
         <img
           src={src}
           alt=""
+          loading="lazy"
+          decoding="async"
+          fetchPriority="low"
           className="absolute inset-0 w-full h-full object-cover"
           draggable={false}
           style={{
-            maskImage: `radial-gradient(
-              circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-              black ${finalConfig.spotlightSize * 0.4}px,
-              transparent ${finalConfig.spotlightSize * 1.6}px
-            )`,
-            WebkitMaskImage: `radial-gradient(
-              circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-              black ${finalConfig.spotlightSize * 0.4}px,
-              transparent ${finalConfig.spotlightSize * 1.6}px
-            )`,
+            maskImage: `radial-gradient(circle at var(--mouse-x) var(--mouse-y), black ${
+              finalConfig.spotlightSize * 0.4
+            }px, transparent ${finalConfig.spotlightSize * 1.6}px)`,
+            WebkitMaskImage: `radial-gradient(circle at var(--mouse-x) var(--mouse-y), black ${
+              finalConfig.spotlightSize * 0.4
+            }px, transparent ${finalConfig.spotlightSize * 1.6}px)`,
             zIndex: 2
           }}
         />
 
-        {/* Main Dark Overlay with Current Spotlight Position */}
+        {/* Dark Overlay */}
         <div
           className="absolute inset-0 bg-black will-change-[mask-position] transition-all duration-100 ease-out"
           style={{
             opacity: finalConfig.overlayOpacity,
-            maskImage: `radial-gradient(
-              circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-              transparent ${finalConfig.spotlightSize * 0.4}px,
-              black ${finalConfig.spotlightSize * 1.6}px
-            )`,
-            WebkitMaskImage: `radial-gradient(
-              circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-              transparent ${finalConfig.spotlightSize * 0.4}px,
-              black ${finalConfig.spotlightSize * 1.6}px
-            )`,
+            maskImage: `radial-gradient(circle at var(--mouse-x) var(--mouse-y), transparent ${
+              finalConfig.spotlightSize * 0.4
+            }px, black ${finalConfig.spotlightSize * 1.6}px)`,
+            WebkitMaskImage: `radial-gradient(circle at var(--mouse-x) var(--mouse-y), transparent ${
+              finalConfig.spotlightSize * 0.4
+            }px, black ${finalConfig.spotlightSize * 1.6}px)`,
             zIndex: 10
           }}
         />
-
       </div>
     </div>
   );

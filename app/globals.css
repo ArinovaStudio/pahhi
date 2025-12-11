@@ -112,7 +112,7 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 .blur-div{
-  z-index: 9999 !important;
+  z-index: 999 !important;
 }
 @layer base {
   * {
@@ -127,6 +127,7 @@
   0%{
     backdrop-filter: blur(5px);
     pointer-events: none;
+    transition: all;
   }
   50%{
     backdrop-filter: blur(30px);

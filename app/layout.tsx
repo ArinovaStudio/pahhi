@@ -35,7 +35,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="relative">
+          <div>
             <Navbar />
             {children}
             <Footer />

@@ -1,8 +1,10 @@
 "use client";
 import Image from "next/image";
-import ImageSpotlight from "../image-spotlight";
+// import ImageSpotlight from "../image-spotlight";
 import data from "@/data/data";
-
+import dynamic from "next/dynamic";
+const ImageSpotlight = dynamic(()=>import("../image-spotlight"),{
+  ssr:false});
 export default function SixItemsGrid() {
   const images = data["home"].images;
 
@@ -69,7 +71,7 @@ export default function SixItemsGrid() {
               alt="Portfolio item"
               config={{
                 className:
-                  "max-sm:max-h-[150px]! max-sm:max-w-[150px]! max-md:max-h-[400px]! max-md:max-w-[400px]!",
+                  "max-sm:max-h-[300px]! max-sm:max-w-[300px]! max-md:max-h-[400px]! max-md:max-w-[400px]!",
               }}
             />
           </div>
