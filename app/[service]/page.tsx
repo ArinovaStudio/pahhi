@@ -15,10 +15,10 @@ export default function Service() {
   }
   return (
       <div>
-        <HeroSection service={data[service].title} bgPic={data[service].images[0]}/>
+        <HeroSection service={data[service].title} titleColor={data[service].titleColor ?? "black"} bgPic={data[service].images[0]}/>
         <WhatWeOffer picture={data[service].images[1]}/>
         <SelectedWorks service={service}/>
-        <CTASection/>
+        <CTASection/> 
       </div>
   );
 }

@@ -1,18 +1,8 @@
 // Data for each type with title and images
 const data = {
-  "ai-enabled-services": {
-    title: "AI Enabled Services",
-    images: [
-      "/vision.png",
-      "/camera.png",
-      "/eg1.png",
-      "/eg2.png",
-      "/eg3.png",
-      "/eg4.png",
-    ]
-  },
   "brand-campaigns": {
     title: "Brand Campaigns",
+    titleColor: "white",
     images: [
       "/brand1.png",
       "/brand2.png",
@@ -46,6 +36,7 @@ const data = {
   },
   "food-and-drink": {
     title: "Food and Drink",
+    titleColor: "white",
     images: [
       "/fab1.png",
       "/fab2.png",
@@ -53,17 +44,6 @@ const data = {
       "/fab4.png",
       "/fab5.png",
       "/fab6.png",
-    ]
-  },
-  "hamburger": {
-    title: "Hamburger",
-    images: [
-      "/vision.png",
-      "/camera.png",
-      "/eg1.png",
-      "/eg2.png",
-      "/eg3.png",
-      "/eg4.png",
     ]
   },
   "jewellery": {
@@ -93,6 +73,7 @@ const data = {
 export type CategoryType = {
 title: string;
 images: string[];
+titleColor?: string;
 };
 
 

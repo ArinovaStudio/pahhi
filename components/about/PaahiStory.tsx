@@ -1,10 +1,16 @@
 export default function PaahiStory() {
   return (
-    <section className="w-full bg-black min-h-[250px] md:min-h-[500px] text-white py-24 px-6">
+    <section
+      className="
+        w-full min-h-[250px] md:min-h-[500px] py-24 px-6
+        bg-white text-black
+        dark:bg-black dark:text-white
+      "
+    >
       <div className="max-w-3xl mx-auto text-center">
         
         {/* Small Heading */}
-        <p className="text-sm tracking-[0.25em] text-gray-400 mb-4">
+        <p className="text-sm tracking-[0.25em] text-gray-600 dark:text-gray-400 mb-4">
           WHO WE ARE
         </p>
 
@@ -14,13 +20,13 @@ export default function PaahiStory() {
         </h2>
 
         {/* Paragraphs */}
-        <p className="text-gray-300 text-base md:text-lg leading-relaxed mb-6">
+        <p className="text-gray-700 dark:text-gray-300 text-base md:text-lg leading-relaxed mb-6">
           Paahi Productions was born from a simple belief: that content should not just be
           seen, but felt. Based in the heart of Bengaluru, we are a collective of filmmakers,
           photographers, and creative technologists.
         </p>
 
-        <p className="text-gray-300 text-base md:text-lg leading-relaxed">
+        <p className="text-gray-700 dark:text-gray-300 text-base md:text-lg leading-relaxed">
           We bridge the gap between traditional cinematic craftsmanship and the fast-paced
           demands of modern digital marketing.
         </p>

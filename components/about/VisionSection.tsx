@@ -2,56 +2,65 @@ import Image from "next/image";
 
 export default function VisionSection() {
   return (
-    <section className="w-full bg-black text-white py-20">
-      <div className="mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-        
+    <section className="w-full bg-white text-black dark:bg-black dark:text-white py-20 transition-colors duration-300">
+      <div className="mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+
         {/* Left Image */}
-        <div className="w-full">
+        <div className="w-full flex justify-center lg:justify-start">
           <Image
-            src="/vision.png" // Replace with your imported image
+            src="/vision.png"
             alt="Vision Graphic"
-            width={200}
-            height={900}
-            className="w-full h-auto object-cover"
+            width={500}
+            height={700}
+            className="w-full max-w-[500px] h-auto object-cover"
           />
         </div>
 
-        {/* Right Content */}
-        <div className="px-8 py-5 text-left max-h-[600px] flex justify-center flex-col px-3 bg-[#1A1A1A] h-full w-full">
-          <h2 className="text-xl md:text-3xl font-serif mb-6">
+        {/* Right Content Box */}
+        <div className="
+          bg-gray-100 text-black 
+          dark:bg-[#121212] dark:text-white 
+           p-10 lg:p-14 shadow-lg 
+          border border-black/10 dark:border-white/5
+          transition-colors duration-300
+        ">
+          
+          <h2 className="text-2xl md:text-4xl font-serif mb-8">
             The Vision That Drives Our Craft
           </h2>
 
-          <p className="text-gray-300 text-base md:text-md leading-relaxed mb-8">
+          <p className="text-gray-700 dark:text-gray-300 text-base md:text-lg leading-relaxed mb-10">
             We see a world where brands don't just interrupt, but entertain and inspire.
             Our mission is to turn abstract ideas into tangible, high-fidelity visual
             experiences.
           </p>
 
-          <div className="space-y-5">
+          {/* Vision Points */}
+          <div className="space-y-7">
 
-            <div className="flex items-center gap-4">
-              <span className="h-px w-10 bg-gray-500"></span>
-              <p className="uppercase tracking-wide text-sm text-gray-300">
+            <div className="flex items-center gap-5">
+              <span className="h-px w-12 bg-gray-400 dark:bg-gray-600"></span>
+              <p className="uppercase tracking-wide text-sm md:text-base text-gray-700 dark:text-gray-300">
                 Uncompromising Quality
               </p>
             </div>
 
-            <div className="flex items-center gap-4">
-              <span className="h-px w-10 bg-gray-500"></span>
-              <p className="uppercase tracking-wide text-sm text-gray-300">
+            <div className="flex items-center gap-5">
+              <span className="h-px w-12 bg-gray-400 dark:bg-gray-600"></span>
+              <p className="uppercase tracking-wide text-sm md:text-base text-gray-700 dark:text-gray-300">
                 Agile Production
               </p>
             </div>
 
-            <div className="flex items-center gap-4">
-              <span className="h-px w-10 bg-gray-500"></span>
-              <p className="uppercase tracking-wide text-sm text-gray-300">
+            <div className="flex items-center gap-5">
+              <span className="h-px w-12 bg-gray-400 dark:bg-gray-600"></span>
+              <p className="uppercase tracking-wide text-sm md:text-base text-gray-700 dark:text-gray-300">
                 Technology Forward
               </p>
             </div>
 
           </div>
+
         </div>
 
       </div>

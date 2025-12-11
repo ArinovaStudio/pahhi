@@ -23,7 +23,13 @@ export default function HowWeWork() {
   ];
 
   return (
-    <section className="w-full bg-black text-white py-24 px-6">
+    <section
+      className="
+        w-full py-24 px-6
+        bg-white text-black
+        dark:bg-black dark:text-white
+      "
+    >
       {/* Heading */}
       <h2 className="text-center text-3xl md:text-5xl font-serif mb-16">
         How We Work
@@ -34,17 +40,27 @@ export default function HowWeWork() {
         {steps.map((item, index) => (
           <div key={index} className="relative">
             {/* Top Divider */}
-            <span className="absolute -top-4 left-0 right-0 h-px bg-gray-700"></span>
+            <span
+              className="
+                absolute -top-4 left-0 right-0 h-px
+                bg-gray-300 dark:bg-gray-700
+              "
+            ></span>
 
             <div className="pt-6">
-              <p className="text-gray-400 text-sm tracking-wider mb-2">
+              <p
+                className="
+                  text-gray-600 dark:text-gray-400
+                  text-sm tracking-wider mb-2
+                "
+              >
                 {item.number}{" "}
-                <span className="text-white font-serif text-lg">
+                <span className="text-black dark:text-white font-serif text-lg">
                   {item.title}
                 </span>
               </p>
 
-              <p className="text-gray-400 text-sm leading-relaxed">
+              <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
                 {item.desc}
               </p>
             </div>
