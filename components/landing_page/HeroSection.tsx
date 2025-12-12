@@ -4,31 +4,6 @@ import { ArrowDown, LayoutGrid, Store } from "lucide-react";
 export default function Hero() {
   return (
     <section className="relative w-full min-h-screen gap-5 overflow-hidden flex flex-col items-center justify-center px-6 lg:px-20 text-black dark:text-white">
-
-      {/* LEFT FLOATING ICONS */}
-      <div className="absolute left-5 top-0 items-center hidden lg:flex flex-col space-y-6">
-        <Button
-          variant="ghost"
-          className="uppercase tracking-widest text-sm text-black dark:text-white"
-        >
-          Get App
-        </Button>
-
-        <Button
-          variant="ghost"
-          className="w-14 h-14 border border-black/30 dark:border-white/60 rounded-full"
-        >
-          <LayoutGrid size={50} />
-        </Button>
-
-        <Button
-          variant="ghost"
-          className="w-14 h-14 border border-black/30 dark:border-white/60 rounded-full"
-        >
-          <Store size={50} />
-        </Button>
-      </div>
-
       {/* RIGHT CONTROLS */}
       <div className="absolute right-5 top-24 hidden lg:block">
         <div className="relative max-w-14 border border-black/40 dark:border-white/40 flex items-center rounded-md p-2">
@@ -41,7 +16,7 @@ export default function Hero() {
 
           <Button
             variant="ghost"
-            className="absolute flex w-7 justify-start items-end justify-start text-xl bg-black/10 dark:bg-white/20 text-black dark:text-white [clip-path:polygon(100%_0,_0_0,_100%_100%)]"
+            className="absolute flex w-7 items-end justify-start text-xl bg-black/10 dark:bg-white/20 text-black dark:text-white [clip-path:polygon(100%_0,_0_0,_100%_100%)]"
           >
             −
           </Button>
@@ -52,7 +27,7 @@ export default function Hero() {
           {Array.from({ length: 18 }).map((_, i) => (
             <div
               key={i}
-              className={`h-[2px] ${
+              className={`h-0.5 ${
                 i % 2 === 0 ? "w-6" : "w-3"
               } bg-black/50 dark:bg-white/60`}
             />
@@ -89,16 +64,16 @@ export default function Hero() {
               <source src="/mobile.mp4" type="video/mp4" />
             </video>
 
-            <p className="text-sm max-w-xs mt-10 opacity-80 leading-relaxed mx-auto lg:mx-0 text-black dark:text-white">
-              Our Work Reflects Our People  
+            <p className="text-lg max-w-md mt-10 opacity-80 leading-relaxed mx-auto lg:mx-0 text-black dark:text-white">
+              Our Work Reflects Our People  <br />
               Passionate, Precise, and Uncompromising.
             </p>
 
             {/* BUTTON */}
             <div className="max-w-80 gap-5 flex flex-col w-full">
               <div className="mt-12">
-                <Button className="w-full bg-black text-white dark:bg-white dark:text-black px-10 min-h-13 rounded-full text-sm font-medium shadow-lg transition">
-                  MORE INFORMATION
+                <Button className="w-full bg-black text-white dark:bg-white dark:text-black px-10 min-h-13 rounded-full text-base font-medium shadow-lg transition">
+                  VIEW OUR WORK
                 </Button>
               </div>
 
@@ -153,9 +128,9 @@ export default function Hero() {
       </div>
 
       {/* BOTTOM DESCRIPTION */}
-      <p className="self-end text-xs max-w-md opacity-70 leading-relaxed hidden lg:block text-black dark:text-white">
+      {/* <p className="self-end text-xs max-w-md opacity-70 leading-relaxed hidden lg:block text-black dark:text-white">
         For us, it starts by listening to our clients and ends by speaking meaningfully to their customers.
-      </p>
+      </p> */}
     </section>
   );
 }

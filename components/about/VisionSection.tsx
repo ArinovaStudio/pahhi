@@ -8,11 +8,11 @@ export default function VisionSection() {
         {/* Left Image */}
         <div className="w-full h-full flex justify-center lg:justify-start">
           <Image
-            src="/vision.png"
+            src="/abt.jpg"
             alt="Vision Graphic"
-            width={500}
-            height={500}
-            className="w-full max-h-[400px] min-h-full! object-cover"
+            width={1080}
+            height={1080}
+            className="w-full max-h-[600px] min-h-full! object-cover"
           />
         </div>
 

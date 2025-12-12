@@ -7,6 +7,7 @@ import SixItemsGrid from "@/components/landing_page/SixItemsGrid";
 import Image from "next/image";
 import {motion} from "framer-motion";
 import dynamic from "next/dynamic";
+import Philosphy from "@/components/abt";
 const Hero = dynamic(() => import('@/components/landing_page/HeroSection'), {
   // loading: () => <p>Loading...</p>, // Optional custom loading indicator
   ssr: false // Optional: set to false to render only on the client side
@@ -25,7 +26,8 @@ export default function Home() {
         ease: "easeInOut"           // Optional: smooth easing
       }}>
         <Hero/>
-        <OurWorkSection/>
+        <Philosphy />
+        {/* <OurWorkSection/> */}
         <SixItemsGrid/>
         <Feedbacks/>
         <OurClients/>

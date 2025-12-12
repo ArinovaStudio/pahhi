@@ -48,19 +48,17 @@ export default function HowWeWork() {
             ></span>
 
             <div className="pt-6">
+              <p className="text-neutral-400 dark:text-neutral-700 font-serif text-5xl">{item.number}{" "}</p>
               <p
                 className="
-                  text-gray-600 dark:text-gray-400
-                  text-sm tracking-wider mb-2
+                  text-gray-600 dark:text-white
+                  text-3xl tracking-wider my-1
                 "
               >
-                {item.number}{" "}
-                <span className="text-black dark:text-white font-serif text-lg">
                   {item.title}
-                </span>
               </p>
 
-              <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+              <p className="text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed mt-2">
                 {item.desc}
               </p>
             </div>

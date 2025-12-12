@@ -14,8 +14,9 @@ const data = {
   },
   "ecommerce": {
     title: "Ecommerce",
+    // titleColor: "white",
     images: [
-      "/ecommerce1.png",
+      "/ecomere.jpg",
       "/ecommerce2.png",
       "/ecommerce3.png",
       "/ecommerce4.png",

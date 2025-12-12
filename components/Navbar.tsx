@@ -2,14 +2,32 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { ModeToggle as ThemeButton } from "./ui/ThemeButton";
+import Image from "next/image";
+import dark_logo from "@/public/pahi.webp"
+import logo_light from "@/public/pahi_light.png"
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="w-full bg-transparent text-black dark:text-white py-5 px-9 flex justify-between items-center transition-colors">
+    <nav className="w-full bg-transparent fixed z-9999  text-black dark:text-white py-5 px-9 flex justify-between items-center transition-colors">
       {/* Logo */}
-      <div className="font-semibold text-xl">PAAHI</div>
+      <div className="font-semibold text-xl">
+        <Image 
+        src={logo_light.src}
+        alt="Pahhi Logo"
+        width={100}
+        height={40}
+        className="hidden dark:block"
+        />
+                <Image 
+        src={dark_logo.src}
+        alt="Pahhi Logo"
+        width={100}
+        height={40}
+        className="block dark:hidden"
+        />
+      </div>
 
       {/* Desktop Menu */}
       <ul className="hidden md:flex items-center gap-5">

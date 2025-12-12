@@ -8,11 +8,11 @@ const OurClients = () => {
       </h3>
 
       <div className="flex max-lg:flex-col flex-wrap justify-center gap-10 md:gap-20 text-gray-700 dark:text-gray-300 text-xl md:text-2xl font-serif">
-        <span className="opacity-60 hover:opacity-100 transition">VOGUE</span>
-        <span className="opacity-60 hover:opacity-100 transition">NIKE</span>
-        <span className="opacity-60 hover:opacity-100 transition">TANISHQ</span>
-        <span className="opacity-60 hover:opacity-100 transition">SAMSUNG</span>
-        <span className="opacity-60 hover:opacity-100 transition">TAJ</span>
+        <span className="opacity-60 hover:opacity-100 transition">PUMA</span>
+        <span className="opacity-60 hover:opacity-100 transition">JOCKEY</span>
+        <span className="opacity-60 hover:opacity-100 transition">CRED</span>
+        <span className="opacity-60 hover:opacity-100 transition">VISION EXPRESS</span>
+        <span className="opacity-60 hover:opacity-100 transition">NOBERO</span>
       </div>
     </section>
   );

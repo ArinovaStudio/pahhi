@@ -4,29 +4,35 @@ import { Linkedin } from "lucide-react";
 export default function TeamSection() {
   const team = [
     {
-      name: "Arjun Mehta",
+      name: "Dr. Nishant Jayant",
       role: "Founder & Director",
-      img: "/person.png",
-      link: "#",
+      img: "/Nishant.png",
+      link: "https://www.linkedin.com/in/dr-nishant-jayant-57249015/",
     },
     {
-      name: "Sarah Jen",
+      name: "Nutan Guleria",
       role: "Business Head",
-      img: "/person.png",
-      link: "#",
+      img: "/nutan.jpg",
+      link: "https://www.linkedin.com/in/nutan-guleria-05822a68/",
     },
     {
-      name: "Dev Patel",
-      role: "Creative Director",
-      img: "/person.png",
-      link: "#",
+      name: "Gautam Mahadikar",
+      role: "Lead - Business Development",
+      img: "/Gautam.png",
+      link: "https://www.linkedin.com/in/gautam-mahadikar-1b6a351ab/",
     },
     {
-      name: "Ananya R",
-      role: "Lead Producer",
-      img: "/person.png",
-      link: "#",
+      name: "Sauvik Acharjee",
+      role: "Head - Brand Growth Strategist",
+      img: "/savik.png",
+      link: "https://www.linkedin.com/in/sauvik-acharjee-marketeer-communication-writer-branding-dei/",
     },
+        {
+      name: "Syed Aftab",
+      role: "Production Head",
+      img: "/aftab.jpg",
+      link: "https://www.linkedin.com/in/syed-aftab-140202192/",
+    }
   ];
 
   return (
@@ -57,7 +63,6 @@ export default function TeamSection() {
               />
             </div>
 
-            {/* Name & Role */}
             <h3 className="mt-6 text-lg font-serif">{member.name}</h3>
             <p className="text-gray-600 dark:text-gray-400 text-sm tracking-wide">
               {member.role}

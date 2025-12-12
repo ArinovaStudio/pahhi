@@ -1,6 +1,7 @@
 export default function HeroSection({service,bgPic,titleColor}:{service:string,bgPic: string,titleColor: string}) {
   return (
-    <section className={`bg-no-repeat bg-size-[100%_auto] bg-center  min-h-[450px] w-full bg-black py-32 px-6`} style={{backgroundImage:`url(${bgPic})`}}>
+    <section className={`bg-no-repeat bg-size-[100%_auto] bg-center  min-h-[450px] w-full py-32 px-6 relative`} style={{backgroundImage:`url(${bgPic})`}}>
+      {/* <div className="w-full h-full bg-black/60 absolute inset-0"></div> */}
       <div className="md:max-w-5xl max-md:w-full mx-auto text-center">
 
         {/* Small label */}
